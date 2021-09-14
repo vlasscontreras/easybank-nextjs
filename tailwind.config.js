@@ -6,7 +6,16 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'sans': ['Public Sans', 'sans-serif'],
+      },
+      extend: {
+        fontSize: {
+          '2sm': '0.9375rem',
+        },
+      },
+    },
   },
   variants: {
     extend: {},
