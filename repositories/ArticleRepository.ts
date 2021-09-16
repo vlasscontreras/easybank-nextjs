@@ -1,5 +1,5 @@
-import Read from 'src/types/read-repository';
-import Article from 'src/types/article';
+import Read from 'types/read-repository';
+import Article from 'types/article';
 
 interface ArticlePlaceholder {
   id: number;
@@ -7,7 +7,7 @@ interface ArticlePlaceholder {
   body: string;
 }
 
-export default class implements Read<Article> {
+class ArticleRepository implements Read<Article> {
   all = async (filters?: Record<string, string>): Promise<Article[]> => {
     let params = '';
 
@@ -48,3 +48,5 @@ export default class implements Read<Article> {
     });
   };
 }
+
+export default ArticleRepository;

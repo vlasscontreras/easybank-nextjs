@@ -1,4 +1,4 @@
-import ArticleRepository from 'src/repositories/ArticleRepository';
+import ArticleRepository from 'repositories/ArticleRepository';
 
 test('articles repository returns an array of articles', async () => {
   const repository = new ArticleRepository();
