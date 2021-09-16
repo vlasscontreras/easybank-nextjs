@@ -41,13 +41,11 @@ const Article = ({ article }: ArticleProps): ReactElement => {
           By {article.author}
         </div>
 
-        <Heading level={1} className="line-clamp-1 mb-4 lg:mb-5">
+        <Heading level={1} className="mb-4 lg:mb-5">
           {article.title}
         </Heading>
 
-        <p className="text-gray-400 leading-relaxed line-clamp-3 overflow-ellipsis">
-          {article.content}
-        </p>
+        <div className="prose lg:prose-lg max-w-none" dangerouslySetInnerHTML={{__html: article.content}} />
       </Container>
     </section>
   </>);
