@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .stretched-link::after {
+    content: '';
+    @apply z-10;
+    @apply absolute;
+    @apply inset-0;
+    @apply bg-transparent;
+    @apply pointer-events-auto;
+  }
+}
