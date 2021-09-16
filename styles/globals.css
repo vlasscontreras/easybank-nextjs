@@ -12,3 +12,8 @@
     @apply pointer-events-auto;
   }
 }
+
+/* NProgress Spinner */
+#nprogress .spinner {
+  @apply hidden !important;
+}
