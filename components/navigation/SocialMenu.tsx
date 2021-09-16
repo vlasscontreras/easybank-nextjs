@@ -35,7 +35,7 @@ const SocialMenu = ({ className }: SocialMenuProps): ReactElement => {
   return (
     <ul className={buildClasses(className)}>
       {links.map(({ icon, url, name }) => (
-        <li key={icon}>
+        <li key={name}>
           <a
             href={url}
             target="_blank"
