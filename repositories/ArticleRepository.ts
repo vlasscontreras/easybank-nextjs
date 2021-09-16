@@ -1,10 +1,17 @@
 import Read from 'types/read-repository';
 import Article from 'types/article';
 
-interface ArticlePlaceholder {
+interface DevToUser {
+  name: string;
+}
+
+interface DevToArticle {
   id: number;
   title: string;
-  body: string;
+  description: string;
+  body_html: string;
+  cover_image: string;
+  user: DevToUser;
 }
 
 class ArticleRepository implements Read<Article> {
@@ -15,36 +22,32 @@ class ArticleRepository implements Read<Article> {
       params = '?' + new URLSearchParams(filters).toString();
     }
 
-    const response = await fetch(
-      `https://jsonplaceholder.typicode.com/posts${params}`
-    );
+    const response = await fetch(`https://dev.to/api/articles${params}`);
     const data = await response.json();
 
-    const posts = data.map((post: ArticlePlaceholder) => ({
+    const posts = data.map((post: DevToArticle) => ({
       id: post.id,
       title: post.title,
-      content: post.body,
+      content: post.description,
       url: `/blog/${post.id}`,
-      author: 'John Doe',
-      image: 'https://source.unsplash.com/random',
+      author: post.user.name,
+      image: post.cover_image ?? 'https://source.unsplash.com/random',
     }));
 
     return Promise.resolve(posts);
   };
 
   find = async (id: number | string): Promise<Article | undefined> => {
-    const response = await fetch(
-      `https://jsonplaceholder.typicode.com/posts/${id}`
-    );
-    const data: ArticlePlaceholder = await response.json();
+    const response = await fetch(`https://dev.to/api/articles/${id}`);
+    const post: DevToArticle = await response.json();
 
     return Promise.resolve({
-      id: data.id,
-      title: data.title,
-      content: data.body,
-      url: `/posts/${data.id}`,
-      author: 'John Doe',
-      image: 'https://source.unsplash.com/random',
+      id: post.id,
+      title: post.title,
+      content: post.body_html,
+      url: `/blog/${post.id}`,
+      author: post.user.name,
+      image: post.cover_image ?? 'https://source.unsplash.com/random',
     });
   };
 }
