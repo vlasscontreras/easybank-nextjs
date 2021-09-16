@@ -10,10 +10,8 @@ module.exports = {
       fontFamily: {
         'sans': ['Public Sans', 'sans-serif'],
       },
-      extend: {
-        fontSize: {
-          '2sm': '0.9375rem',
-        },
+      fontSize: {
+        '2sm': '0.9375rem',
       },
     },
   },
