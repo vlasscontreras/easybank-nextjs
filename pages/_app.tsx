@@ -1,8 +1,8 @@
 import 'styles/globals.css'
+import 'node_modules/nprogress/nprogress.css';
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import NProgress from 'nprogress';
-import 'node_modules/nprogress/nprogress.css';
 import Layout from 'components/layout/Layout';
 import { useEffect } from 'react';
 
@@ -29,6 +29,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, [router]);
 
-  return <Layout><Component {...pageProps} /></Layout>
+  return <Layout><Component {...pageProps} /></Layout>;
 }
 export default MyApp
