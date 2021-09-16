@@ -1,9 +1,11 @@
 import { ReactElement } from 'react';
+import Head from 'next/head';
 import Image from 'next/image'
 import Container from 'components/layout/Container';
 import Heading from 'components/type/Heading';
 import ArticleRepository from 'repositories/ArticleRepository';
 import ArticleType from 'types/article';
+import { title } from 'common/meta';
 
 type StaticParams = {
   params: {
@@ -19,7 +21,12 @@ interface ArticleProps {
  * Article component
  */
 const Article = ({ article }: ArticleProps): ReactElement => {
-  return (
+  return (<>
+    <Head>
+      <title>{title(article.title)}</title>
+      <meta name="description" content={article.content.substring(0, 160)} />
+    </Head>
+
     <section className="py-10 lg:py-20">
       <Container>
         <div className="aspect-w-16 aspect-h-9 bg-gray-300 -mx-5 xl:-mx-10 2xl:-mx-20">
@@ -43,7 +50,7 @@ const Article = ({ article }: ArticleProps): ReactElement => {
         </p>
       </Container>
     </section>
-  );
+  </>);
 };
 
 export default Article;
