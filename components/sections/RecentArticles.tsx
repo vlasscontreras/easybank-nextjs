@@ -1,42 +1,20 @@
-import { ReactElement, useEffect, useState } from 'react';
+import { ReactElement } from 'react';
 import Container from 'components/layout/Container';
 import Heading from 'components/type/Heading';
 import Article from 'components/cards/Article';
-import ArticleRepository from 'repositories/ArticleRepository';
-import ArticleLoader from 'components/loaders/ArticleLoader';
+import ArticleType from 'types/article';
 
-/**
- * Get article loaders
- */
-const getLoaders = (count = 4): ReactElement[] => {
-  return Array.from({ length: count }, (_, index) => (
-    <ArticleLoader key={`loader-${index}`} />
-  ));
-};
-
-/**
- * Fetch articles
- */
-const fetchArticles = async () => {
-  const articleRepository = new ArticleRepository();
-  const articles = await articleRepository.all({ _limit: '4' });
-
-  return articles.map((article) => (
-    <Article key={`article-${article.id}`} article={article} />
-  ));
-};
+interface ArticlesProps {
+  articles: ArticleType[];
+}
 
 /**
  * Articles component
  */
-const Articles = (): ReactElement => {
-  const [articles, setArticles] = useState<ReactElement[]>(getLoaders());
-
-  useEffect(() => {
-    fetchArticles().then((sourceArticles) => {
-      setArticles(sourceArticles);
-    });
-  }, []);
+const Articles = ({ articles }: ArticlesProps): ReactElement => {
+  if (!(articles.length > 0)) {
+    return <></>;
+  }
 
   return (
     <section className="bg-gray-50 py-16 lg:py-24">
@@ -45,7 +23,9 @@ const Articles = (): ReactElement => {
           Latest Articles
         </Heading>
 
-        {articles}
+        {articles.map((article) => (
+          <Article key={`article-${article.id}`} article={article} />
+        ))}
       </Container>
     </section>
   );
