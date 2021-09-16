@@ -21,7 +21,7 @@ const Article = ({ article }: ArticleProps): ReactElement => {
       <div className="aspect-w-16 aspect-h-9 bg-gray-300">
         <div className="w-full h-full object-center object-cover">
           <Image
-            src={`${article.image}/480x270?n=${article.id}`}
+            src={article.image}
             alt={article.title}
             width="480"
             height="270"
