@@ -19,14 +19,12 @@ const Article = ({ article }: ArticleProps): ReactElement => {
       title={article.title}
     >
       <div className="aspect-w-16 aspect-h-9 bg-gray-300">
-        <div className="w-full h-full object-center object-cover">
-          <Image
-            src={article.image}
-            alt={article.title}
-            width="480"
-            height="270"
-          />
-        </div>
+        <Image
+          src={article.image}
+          alt={article.title}
+          className="w-full h-full object-center object-cover"
+          layout="fill"
+        />
       </div>
 
       <div className="bg-white p-5 md:p-6">
