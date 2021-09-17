@@ -5,7 +5,7 @@ module.exports = {
     domains: ['res.cloudinary.com', 'source.unsplash.com']
   },
   i18n: {
-    locales: ['en-US'],
-    defaultLocale: 'en-US',
+    locales: ['en'],
+    defaultLocale: 'en',
   },
 };
