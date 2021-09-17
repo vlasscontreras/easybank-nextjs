@@ -39,6 +39,11 @@ class ArticleRepository implements Read<Article> {
 
   find = async (id: number | string): Promise<Article | undefined> => {
     const response = await fetch(`https://dev.to/api/articles/${id}`);
+
+    if (response.status > 299) {
+      return Promise.reject(new Error(`Could not find article with id ${id}`));
+    }
+
     const post: DevToArticle = await response.json();
 
     return Promise.resolve({
