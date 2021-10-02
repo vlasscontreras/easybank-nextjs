@@ -2,6 +2,7 @@ import { ReactElement } from 'react';
 import NavbarMenuItem from 'components/navigation/NavbarMenuItem';
 import NavLink from 'types/nav-link';
 import Classable from 'types/classable';
+import ThemeToggler from 'components/navigation/ThemeToggler';
 
 interface NavbarMenuProps extends Classable {
   links: NavLink[];
@@ -47,7 +48,15 @@ const NavbarMenu = ({
     </li>
   ));
 
-  return <ul className={buildClasses(className)}>{items}</ul>;
+  return (
+    <ul className={buildClasses(className)}>
+      {items}
+
+      <div className="text-center md:hidden mt-7">
+        <ThemeToggler />
+      </div>
+    </ul>
+  );
 };
 
 NavbarMenu.defaultProps = {

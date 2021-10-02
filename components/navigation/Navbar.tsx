@@ -1,11 +1,11 @@
 import { ReactElement, useState } from 'react';
 import { Transition } from '@tailwindui/react';
-import { ThemeContext } from 'context/ThemeContext';
 import Container from 'components/layout/Container';
 import NavbarBrand from 'components/navigation/NavbarBrand';
 import NavbarToggler from 'components/navigation/NavbarToggler';
 import NavbarMenu from 'components/navigation/NavbarMenu';
 import Button from 'components/forms/Button';
+import ThemeToggler from 'components/navigation/ThemeToggler';
 import { links } from 'common/nav-links';
 
 /**
@@ -53,7 +53,9 @@ const Navbar = (): ReactElement => {
         <NavbarMenu links={links} className="hidden md:block" />
 
         {/* Desktop-only CTA */}
-        <Button className="hidden md:inline-block">Request Inivite</Button>
+        <Button className="hidden md:inline-block ml-auto">Request Inivite</Button>
+
+        <ThemeToggler className="ml-5 hidden md:inline-flex" />
       </Container>
     </nav>
   );
