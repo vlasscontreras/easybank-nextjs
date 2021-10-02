@@ -13,7 +13,7 @@ import { links } from 'common/nav-links';
  */
 const toggle = (isOpen: boolean, setIsOpen: (isOpen: boolean) => void) => {
   if (typeof navigator.vibrate === 'function') {
-    navigator.vibrate(500); // Haptic feedback.
+    navigator.vibrate(10); // Haptic feedback.
   }
 
   setIsOpen(!isOpen);
