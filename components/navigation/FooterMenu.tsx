@@ -23,7 +23,7 @@ const FooterMenu = ({ links, className }: FooterMenuProps): ReactElement => {
         {links.map(({ name, url }) => (
           <li key={name}>
             <Link href={url}>
-              <a className="text-white py-1.5 block">{name}</a>
+              <a className="text-gray-600 dark:text-gray-300 dark:hover:text-white py-1.5 block transition-colors">{name}</a>
             </Link>
           </li>
         ))}

@@ -5,7 +5,7 @@ import Classable from 'types/classable';
  * Build CSS classes
  */
 const buildClasses = (className?: string): string =>
-  [className, 'text-white', 'opacity-40'].join(' ');
+  [className, 'text-gray-400', 'transition-colors'].join(' ');
 
 /**
  * Footer copyright component
