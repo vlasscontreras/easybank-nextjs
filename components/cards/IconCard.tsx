@@ -21,10 +21,10 @@ const IconCard = ({ icon, title, children }: IconCardProps): ReactElement => {
         height="72"
         className="inline-block"
       />
-      <Heading level={3} className="text-lg md:text-xl">
+      <Heading level={3} className="text-lg md:text-xl dark:text-white transition-colors">
         {title}
       </Heading>
-      <div className="text-gray-400 text-sm md:text-base">{children}</div>
+      <div className="text-gray-400 dark:text-gray-300 text-sm md:text-base transition-colors">{children}</div>
     </article>
   );
 };

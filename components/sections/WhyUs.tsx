@@ -12,12 +12,12 @@ import Heading from 'components/type/Heading';
  */
 const WhyUs = (): ReactElement => {
   return (
-    <section className="relative py-16 lg:py-24 bg-gray-100">
+    <section className="relative py-16 lg:py-24 bg-gray-100 dark:bg-gray-900 transition-colors">
       <Container className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <div className="text-center md:text-left space-y-4 lg:space-y-7 relative">
-          <Heading>Why choose Easybank?</Heading>
+          <Heading className="dark:text-white transition-colors">Why choose Easybank?</Heading>
 
-          <p className="text-sm md:text-base lg:text-lg text-gray-400 leading-relaxed">
+          <p className="text-sm md:text-base lg:text-lg text-gray-400 dark:text-gray-300 leading-relaxed transition-colors">
             We leverage Open Banking to turn your bank account into your
             financial hub. Control your finances like never before.
           </p>
