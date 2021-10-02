@@ -116,7 +116,7 @@ const ThemeToggler = ({ className }: Classable): ReactElement => {
             </span>
 
             <span className={getIconWrapperClass(theme, true)} aria-hidden="true">
-              <Sun className="h-3 w-3 text-gray-400" />
+              <Sun className="h-3 w-3 text-yellow-400" />
             </span>
           </span>
         </button>
