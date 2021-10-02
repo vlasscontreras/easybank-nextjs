@@ -27,9 +27,9 @@ const Article = ({ article }: ArticleProps): ReactElement => {
       <meta name="description" content={article.content.substring(0, 160)} />
     </Head>
 
-    <section className="py-10 lg:py-20">
+    <section className="py-10 lg:py-20 bg-white dark:bg-gray-800 transition-colors">
       <Container>
-        <div className="aspect-w-16 aspect-h-9 bg-gray-300 -mx-5 xl:-mx-10 2xl:-mx-20">
+        <div className="aspect-w-16 aspect-h-9 bg-gray-300 dark:bg-gray-700 -mx-5 xl:-mx-10 2xl:-mx-20">
           <Image
             src={article.image}
             alt={article.title}
@@ -37,15 +37,15 @@ const Article = ({ article }: ArticleProps): ReactElement => {
             layout="fill"
           />
         </div>
-        <div className="text-sm text-gray-400 mt-4 lg:mt-6">
+        <div className="text-sm text-gray-400 dark:text-gray-300 mt-4 lg:mt-6">
           By {article.author}
         </div>
 
-        <Heading level={1} className="mb-4 lg:mb-5">
+        <Heading level={1} className="mb-4 lg:mb-5 dark:text-white transition-colors">
           {article.title}
         </Heading>
 
-        <div className="prose lg:prose-lg max-w-none" dangerouslySetInnerHTML={{__html: article.content}} />
+        <div className="prose lg:prose-lg max-w-none dark:prose-dark transition-colors" dangerouslySetInnerHTML={{__html: article.content}} />
       </Container>
     </section>
   </>);

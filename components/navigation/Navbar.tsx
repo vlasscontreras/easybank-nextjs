@@ -5,6 +5,7 @@ import NavbarBrand from 'components/navigation/NavbarBrand';
 import NavbarToggler from 'components/navigation/NavbarToggler';
 import NavbarMenu from 'components/navigation/NavbarMenu';
 import Button from 'components/forms/Button';
+import ThemeToggler from 'components/navigation/ThemeToggler';
 import { links } from 'common/nav-links';
 
 /**
@@ -12,7 +13,7 @@ import { links } from 'common/nav-links';
  */
 const toggle = (isOpen: boolean, setIsOpen: (isOpen: boolean) => void) => {
   if (typeof navigator.vibrate === 'function') {
-    navigator.vibrate(500); // Haptic feedback.
+    navigator.vibrate(10); // Haptic feedback.
   }
 
   setIsOpen(!isOpen);
@@ -25,7 +26,7 @@ const Navbar = (): ReactElement => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white py-5 shadow">
+    <nav className="bg-white dark:bg-gray-800 py-5 shadow transition-colors">
       <Container className="flex justify-between items-center">
         <NavbarBrand />
         <NavbarToggler
@@ -52,7 +53,9 @@ const Navbar = (): ReactElement => {
         <NavbarMenu links={links} className="hidden md:block" />
 
         {/* Desktop-only CTA */}
-        <Button className="hidden md:inline-block">Request Inivite</Button>
+        <Button className="hidden md:inline-block ml-auto">Request Inivite</Button>
+
+        <ThemeToggler className="ml-5 hidden md:inline-flex" />
       </Container>
     </nav>
   );

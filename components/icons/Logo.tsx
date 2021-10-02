@@ -1,8 +1,8 @@
 import { ReactElement } from 'react';
+import Classable from 'types/classable';
 
-interface LogoProps {
+interface LogoProps extends Classable {
   mode?: 'light' | 'dark';
-  className?: string;
 }
 
 /**

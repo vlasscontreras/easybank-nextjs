@@ -10,19 +10,26 @@ interface NavbarMenuItemProps {
 /**
  * The item CSS classes.
  */
-const className = [
-  'text-gray-800',
-  'px-3',
-  'py-2',
-  'inline-flex',
-  'text-center',
-  'border-b-2',
-  'border-transparent',
-  'hover:border-green-500',
-  'md:text-2sm',
-  'md:text-gray-500',
-  'md:hover:text-gray-800',
-].join(' ');
+const buildClasses = (): string => {
+  const className = [
+    'px-3',
+    'py-2',
+    'inline-flex',
+    'text-center',
+    'border-b-2',
+    'border-transparent',
+    'hover:border-green-500',
+    'md:text-2sm',
+    'text-gray-800',
+    'md:text-gray-500',
+    'md:hover:text-gray-800',
+    'dark:text-white',
+    'dark:hover:text-gray-300',
+    'transition-colors',
+  ];
+
+  return className.join(' ');
+};
 
 /**
  * The navbar item component
@@ -34,7 +41,7 @@ const NavbarMenuItem = ({
 }: NavbarMenuItemProps): ReactElement => {
   return (
     <Link href={to}>
-      <a className={className} onClick={onClick}>{children}</a>
+      <a className={buildClasses()} onClick={onClick}>{children}</a>
     </Link>
   );
 };

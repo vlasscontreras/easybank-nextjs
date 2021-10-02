@@ -6,21 +6,18 @@ import Heading from 'components/type/Heading';
 import bgMobile from 'assets/svg/bg-intro-mobile.svg';
 import bgDesktop from 'assets/svg/bg-intro-desktop.svg';
 import mockups from 'assets/img/image-mockups.png';
-
-interface HeroProps {
-  className?: string;
-}
+import Classable from 'types/classable';
 
 /**
  * Build CSS classes
  */
 const buildClasses = (className?: string): string =>
-  [className, 'relative', 'py-10'].join(' ');
+  [className, 'relative', 'py-10', 'bg-white', 'dark:bg-gray-800', 'transition-colors'].join(' ');
 
 /**
  * Hero component
  */
-const Hero = ({ className }: HeroProps): ReactElement => {
+const Hero = ({ className }: Classable): ReactElement => {
   return (
     <section className={buildClasses(className)}>
       <Container className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -39,9 +36,9 @@ const Hero = ({ className }: HeroProps): ReactElement => {
 
         {/* Text */}
         <div className="text-center md:text-left space-y-7 md:order-1 relative">
-          <Heading level={1}>Next generation digital banking</Heading>
+          <Heading level={1} className="dark:text-white transition-colors">Next generation digital banking</Heading>
 
-          <p className="text-sm md:text-base lg:text-lg text-gray-400 leading-relaxed">
+          <p className="text-sm md:text-base lg:text-lg text-gray-400 dark:text-gray-300 leading-relaxed transition-colors">
             Take your financial life online. Your Easybank account will be a
             one-stop-shop for spending, saving, budgeting, investing, and much
             more.

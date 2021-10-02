@@ -17,9 +17,9 @@ const Articles = ({ articles }: ArticlesProps): ReactElement => {
   }
 
   return (
-    <section className="bg-gray-50 py-16 lg:py-24">
+    <section className="bg-gray-50 dark:bg-gray-800 py-16 lg:py-24 transition-colors">
       <Container className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <Heading className="col-span-1 md:col-span-2 lg:col-span-4">
+        <Heading className="col-span-1 md:col-span-2 lg:col-span-4 dark:text-white transition-colors">
           Latest Articles
         </Heading>
 

@@ -6,17 +6,22 @@ import FooterMenu from 'components/navigation/FooterMenu';
 import FooterCopyright from 'components/navigation/FooterCopyright';
 import Button from 'components/forms/Button';
 import { footerLinks } from 'common/nav-links';
+import { ThemeContext } from 'context/ThemeContext';
 
 /**
  * Footer component
  */
 const Footer = (): ReactElement => {
   return (
-    <footer className="bg-gray-700 px-5 py-10 text-sm">
+    <footer className="bg-white dark:bg-gray-900 px-5 py-10 text-sm">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 justify-items-center items-center gap-7">
           <div className="flex flex-wrap justify-center md:justify-start space-y-7 w-full col-span-1 h-full">
-            <Logo mode="light" />
+            <ThemeContext.Consumer>
+              {({ theme }) => (
+                <Logo mode={theme === 'dark' ? 'light' : 'dark'} />
+              )}
+            </ThemeContext.Consumer>
             <SocialMenu className="w-full justify-center md:justify-start" />
           </div>
 
