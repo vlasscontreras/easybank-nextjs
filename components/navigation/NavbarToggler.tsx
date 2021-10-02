@@ -2,9 +2,9 @@ import { ReactElement } from 'react';
 import { ThemeContext } from 'context/ThemeContext';
 import BurgerIcon from 'components/icons/Burger';
 import CloseIcon from 'components/icons/Close';
+import Classable from 'types/classable';
 
-interface NavbarTogglerProps {
-  className?: string;
+interface NavbarTogglerProps extends Classable {
   onClick: () => void;
   status: boolean;
 }

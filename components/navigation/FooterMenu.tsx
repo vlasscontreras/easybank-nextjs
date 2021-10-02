@@ -1,10 +1,10 @@
 import { ReactElement } from 'react';
 import Link from 'next/link';
 import NavLink from 'types/nav-link';
+import Classable from 'types/classable';
 
-interface FooterMenuProps {
+interface FooterMenuProps extends Classable {
   links: NavLink[];
-  className?: string;
 }
 
 /**

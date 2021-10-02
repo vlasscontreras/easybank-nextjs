@@ -6,10 +6,7 @@ import Heading from 'components/type/Heading';
 import bgMobile from 'assets/svg/bg-intro-mobile.svg';
 import bgDesktop from 'assets/svg/bg-intro-desktop.svg';
 import mockups from 'assets/img/image-mockups.png';
-
-interface HeroProps {
-  className?: string;
-}
+import Classable from 'types/classable';
 
 /**
  * Build CSS classes
@@ -20,7 +17,7 @@ const buildClasses = (className?: string): string =>
 /**
  * Hero component
  */
-const Hero = ({ className }: HeroProps): ReactElement => {
+const Hero = ({ className }: Classable): ReactElement => {
   return (
     <section className={buildClasses(className)}>
       <Container className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">

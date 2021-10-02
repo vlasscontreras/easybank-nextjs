@@ -1,10 +1,10 @@
 import { ReactElement } from 'react';
 import NavbarMenuItem from 'components/navigation/NavbarMenuItem';
 import NavLink from 'types/nav-link';
+import Classable from 'types/classable';
 
-interface NavbarMenuProps {
+interface NavbarMenuProps extends Classable {
   links: NavLink[];
-  className?: string;
   onClick?: () => void;
 }
 

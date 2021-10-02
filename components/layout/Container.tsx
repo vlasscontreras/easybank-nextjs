@@ -1,8 +1,8 @@
 import { ReactElement } from 'react';
+import Classable from 'types/classable';
 
-interface ContainerProps {
+interface ContainerProps extends Classable {
   children: React.ReactNode;
-  className?: string;
 }
 
 /**

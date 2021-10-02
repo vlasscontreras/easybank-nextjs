@@ -1,13 +1,10 @@
 import { ReactElement } from 'react';
-
-interface CloseProps {
-  className?: string;
-}
+import Classable from 'types/classable';
 
 /**
  * Close component
  */
-const Close = ({ className }: CloseProps): ReactElement => {
+const Close = ({ className }: Classable): ReactElement => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" className={className}>
       <g fill="currentColor" fillRule="evenodd">

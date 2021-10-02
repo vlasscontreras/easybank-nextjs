@@ -2,10 +2,10 @@ import { ReactElement } from 'react';
 import Head from 'next/head';
 import Header from 'components/layout/Header';
 import Footer from 'components/layout/Footer';
+import Classable from 'types/classable';
 
-interface LayoutProps {
+interface LayoutProps extends Classable {
   children: ReactElement;
-  className?: string;
 }
 
 const Layout = ({ children, className }: LayoutProps): ReactElement => (

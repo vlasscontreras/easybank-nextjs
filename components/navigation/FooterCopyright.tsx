@@ -1,8 +1,5 @@
 import { ReactElement } from 'react';
-
-interface FooterCopyrightProps {
-  className?: string;
-}
+import Classable from 'types/classable';
 
 /**
  * Build CSS classes
@@ -13,7 +10,7 @@ const buildClasses = (className?: string): string =>
 /**
  * Footer copyright component
  */
-const FooterCopyright = ({ className }: FooterCopyrightProps): ReactElement => (
+const FooterCopyright = ({ className }: Classable): ReactElement => (
   <div className={buildClasses(className)}>
     &copy; EasyBank. All Rights Reserved.
   </div>

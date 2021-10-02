@@ -1,15 +1,12 @@
 import { ReactElement } from 'react';
 import Image from 'next/image';
 import SocialLink from 'types/social-link';
+import Classable from 'types/classable';
 import iconFacebook from 'assets/svg/icon-facebook.svg';
 import iconInstagram from 'assets/svg/icon-instagram.svg';
 import iconPinterest from 'assets/svg/icon-pinterest.svg';
 import iconTwitter from 'assets/svg/icon-twitter.svg';
 import iconYouTube from 'assets/svg/icon-youtube.svg';
-
-interface SocialMenuProps {
-  className?: string;
-}
 
 /**
  * Links to display in the navigation bar
@@ -31,7 +28,7 @@ const buildClasses = (className?: string) =>
 /**
  * Social menu component
  */
-const SocialMenu = ({ className }: SocialMenuProps): ReactElement => {
+const SocialMenu = ({ className }: Classable): ReactElement => {
   return (
     <ul className={buildClasses(className)}>
       {links.map(({ icon, url, name }) => (

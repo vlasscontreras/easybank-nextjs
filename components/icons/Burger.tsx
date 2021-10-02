@@ -1,13 +1,10 @@
 import { ReactElement } from 'react';
-
-interface BurgerProps {
-  className?: string;
-}
+import Classable from 'types/classable';
 
 /**
  * Burger component
  */
-const Burger = ({ className }: BurgerProps): ReactElement => {
+const Burger = ({ className }: Classable): ReactElement => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="11" className={className}>
       <g fill="currentColor" fillRule="evenodd">

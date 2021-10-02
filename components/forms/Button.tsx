@@ -2,12 +2,12 @@
 import { ReactElement } from 'react';
 import Link from 'next/link';
 import { UrlObject } from 'url';
+import Classable from 'types/classable';
 
-interface ButtonProps {
+interface ButtonProps extends Classable {
   onClick?: () => void;
   to?: string | UrlObject;
   type?: 'button' | 'submit' | 'reset' | 'link' | 'route';
-  className: string;
   disabled?: boolean;
   children: React.ReactNode;
 }
@@ -15,7 +15,7 @@ interface ButtonProps {
 /**
  * Build button classnames
  */
-const buildClassNames = (className: string): string =>
+const buildClassNames = (className?: string): string =>
   [
     className,
     'bg-gradient-to-r',
