@@ -15,7 +15,7 @@ interface HeroProps {
  * Build CSS classes
  */
 const buildClasses = (className?: string): string =>
-  [className, 'relative', 'py-10'].join(' ');
+  [className, 'relative', 'py-10', 'bg-white', 'dark:bg-gray-800', 'transition-colors'].join(' ');
 
 /**
  * Hero component
@@ -39,9 +39,9 @@ const Hero = ({ className }: HeroProps): ReactElement => {
 
         {/* Text */}
         <div className="text-center md:text-left space-y-7 md:order-1 relative">
-          <Heading level={1}>Next generation digital banking</Heading>
+          <Heading level={1} className="dark:text-white transition-colors">Next generation digital banking</Heading>
 
-          <p className="text-sm md:text-base lg:text-lg text-gray-400 leading-relaxed">
+          <p className="text-sm md:text-base lg:text-lg text-gray-400 dark:text-gray-300 leading-relaxed transition-colors">
             Take your financial life online. Your Easybank account will be a
             one-stop-shop for spending, saving, budgeting, investing, and much
             more.
