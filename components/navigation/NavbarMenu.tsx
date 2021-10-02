@@ -11,17 +11,25 @@ interface NavbarMenuProps {
 /**
  * Build the menu CSS classes
  */
-const buildClasses = (className?: string): string =>
-  [
+const buildClasses = (className?: string): string => {
+  const classes = [
     className,
-    'bg-white',
     'py-4',
     'rounded-xl',
     'shadow-2xl',
     'md:shadow-none',
     'md:py-0',
     'md:flex',
-  ].join(' ');
+    'md:bg-transparent',
+    'bg-white',
+    'md:bg-transparent',
+    'dark:bg-gray-800',
+    'dark:md:bg-transparent',
+    'transition-colors'
+  ];
+
+  return classes.join(' ');
+}
 
 /**
  * The navbar menu component

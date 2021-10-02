@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
-import Image from 'next/image';
-import iconBurger from 'assets/svg/icon-hamburger.svg';
-import iconClose from 'assets/svg/icon-close.svg';
+import { ThemeContext } from 'context/ThemeContext';
+import BurgerIcon from 'components/icons/Burger';
+import CloseIcon from 'components/icons/Close';
 
 interface NavbarTogglerProps {
   className?: string;
@@ -12,8 +12,17 @@ interface NavbarTogglerProps {
 /**
  * Build the menu CSS classes
  */
-const buildClasses = (className?: string): string =>
-  [className, 'focus:outline-none'].join(' ');
+const buildClasses = (className?: string, theme?: string): string => {
+  const classes = [className, 'focus:outline-none'];
+
+  if (theme === 'dark') {
+    classes.push('text-white');
+  } else {
+    classes.push('text-gray-800');
+  }
+
+  return classes.join(' ');
+}
 
 /**
  * Navbar brand component
@@ -23,18 +32,14 @@ const NavbarBrand = ({
   onClick,
   status,
 }: NavbarTogglerProps): ReactElement => {
-  const icon = status ? iconClose : iconBurger;
-
   return (
-    <button onClick={onClick} className={buildClasses(className)}>
-      <Image
-        src={icon}
-        alt="Toggle"
-        width="24"
-        height="24"
-        className="w-6 h-6 object-contain"
-      />
-    </button>
+    <ThemeContext.Consumer>
+      {({ theme }) => (
+        <button onClick={onClick} className={buildClasses(className, theme)}>
+          { status ? <CloseIcon /> : <BurgerIcon /> }
+        </button>
+      )}
+    </ThemeContext.Consumer>
   );
 };
 

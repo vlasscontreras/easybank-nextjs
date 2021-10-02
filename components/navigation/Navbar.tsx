@@ -1,5 +1,6 @@
 import { ReactElement, useState } from 'react';
 import { Transition } from '@tailwindui/react';
+import { ThemeContext } from 'context/ThemeContext';
 import Container from 'components/layout/Container';
 import NavbarBrand from 'components/navigation/NavbarBrand';
 import NavbarToggler from 'components/navigation/NavbarToggler';
@@ -25,7 +26,7 @@ const Navbar = (): ReactElement => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white py-5 shadow">
+    <nav className="bg-white dark:bg-gray-800 py-5 shadow transition-colors">
       <Container className="flex justify-between items-center">
         <NavbarBrand />
         <NavbarToggler
