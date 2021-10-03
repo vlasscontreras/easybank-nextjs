@@ -33,13 +33,19 @@ export const ThemeProvider = ({ children }: Props) => {
   useEffect(() => {
     let theme = defaultTheme;
 
+    // Get the stored theme.
     if (localStorage.getItem('theme')) {
       theme = localStorage.getItem('theme') as string;
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) { // Use prefers-color-scheme: dark if available.
       theme = 'dark';
     }
 
     setTheme(theme);
+
+    // Detect schema changes.
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      setTheme(e.matches ? 'dark' : 'light');
+    });
   }, []);
 
   useEffect(() => {
