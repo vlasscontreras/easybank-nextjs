@@ -3,6 +3,15 @@ import { ThemeContext } from 'context/ThemeContext';
 import Sun from 'components/icons/Sun';
 import Moon from 'components/icons/Moon';
 import Classable from 'types/classable';
+import { triggerHaptic } from 'common/haptic';
+
+/**
+ * Toggle theme
+ */
+const toggle = (theme: string, setTheme: (theme: string) => void) => {
+  triggerHaptic();
+  setTheme(theme === 'light' ? 'dark' : 'light');
+}
 
 /**
  * Get the button CSS classes
@@ -106,7 +115,7 @@ const ThemeToggler = ({ className }: Classable): ReactElement => {
           className={getButtonClass(className, theme)}
           role="switch"
           aria-checked={theme === 'dark'}
-          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          onClick={() => toggle(theme, setTheme)}
         >
           <span className="sr-only">Use dark theme</span>
 
@@ -116,7 +125,7 @@ const ThemeToggler = ({ className }: Classable): ReactElement => {
             </span>
 
             <span className={getIconWrapperClass(theme, true)} aria-hidden="true">
-              <Sun className="h-3 w-3 text-gray-400" />
+              <Sun className="h-3 w-3 text-yellow-400" />
             </span>
           </span>
         </button>

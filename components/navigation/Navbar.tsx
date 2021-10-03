@@ -7,15 +7,13 @@ import NavbarMenu from 'components/navigation/NavbarMenu';
 import Button from 'components/forms/Button';
 import ThemeToggler from 'components/navigation/ThemeToggler';
 import { links } from 'common/nav-links';
+import { triggerHaptic } from 'common/haptic';
 
 /**
  * Toggle the menu
  */
 const toggle = (isOpen: boolean, setIsOpen: (isOpen: boolean) => void) => {
-  if (typeof navigator.vibrate === 'function') {
-    navigator.vibrate(10); // Haptic feedback.
-  }
-
+  triggerHaptic();
   setIsOpen(!isOpen);
 };
 
@@ -50,11 +48,12 @@ const Navbar = (): ReactElement => {
         </Transition>
 
         {/* Desktop menu */}
-        <NavbarMenu links={links} className="hidden md:block" />
+        <NavbarMenu links={links} className="hidden md:block md:justify-center md:flex-grow" />
 
         {/* Desktop-only CTA */}
-        <Button className="hidden md:inline-block ml-auto">Request Inivite</Button>
+        <Button className="hidden md:inline-block">Request Inivite</Button>
 
+        {/* Theme toggler */}
         <ThemeToggler className="ml-5 hidden md:inline-flex" />
       </Container>
     </nav>
