@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 
-export const defaultTheme = 'light';
+export const defaultTheme: string = 'light';
 
 interface Props {
   children: React.ReactNode;
@@ -31,7 +31,15 @@ export const ThemeProvider = ({ children }: Props) => {
 	const [theme, setTheme] = useState(defaultTheme);
 
   useEffect(() => {
-    setTheme(localStorage.getItem('theme') || defaultTheme);
+    let theme = defaultTheme;
+
+    if (localStorage.getItem('theme')) {
+      theme = localStorage.getItem('theme') as string;
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      theme = 'dark';
+    }
+
+    setTheme(theme);
   }, []);
 
   useEffect(() => {
